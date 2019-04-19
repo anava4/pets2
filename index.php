@@ -24,6 +24,41 @@ $f3->route('GET /', function()
     echo "<a href='order'>Order a Pet</a>";
 });
 
+$f3->route('GET /@animal', function($f3,$params)
+{
+
+    $item = $params['animal'];
+    $animals = array('Dog','Chicken','Cat','Cow','Pig');
+
+    if(!in_array($item, $animals)){
+        echo "We don't have $item";
+    }
+
+    switch($item){
+        case 'Dog':
+            echo "Woof!";
+            break;
+        case 'Chicken':
+            echo"Cluck!";
+            break;
+        case 'Cat':
+            echo"Meow!";
+            break;
+        case 'Cow':
+            echo"Moo!!";
+            break;
+        case 'Pig':
+            echo "Oink!";
+            break;
+        default:
+            $f3->error(404);
+    }
+//    //Display a view
+//    $view = new Template();
+//    echo $view->render('views/home2.html');
+
+});
+
 
 //Run fat free
 $f3->run();
