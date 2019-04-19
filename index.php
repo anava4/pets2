@@ -24,7 +24,7 @@ $f3->route('GET /', function()
     echo "<a href='order'>Order a Pet</a>";
 });
 
-$f3->route('GET /@animal', function($f3,$params)
+$f3->route('POST /@animal', function($f3,$params)
 {
 
     $item = $params['animal'];
