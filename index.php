@@ -66,6 +66,19 @@ $f3->route('GET /@animal', function($f3,$params)
 //Define a order route
 $f3->route('GET|POST /order', function()
 {
+    function($f3){
+        $_SESSION = array();
+
+        if(isset($_POST['animal'])){
+            $animal = $_POST['animal'];
+            if(validText($animal)){
+                $_SESSION['animal'] = $animal;
+                $f3->reroute('/order2');
+            }else{
+                $f3->set("errors['animal']", "Please enter an animal.");
+            }
+        }
+    }
     //Display an order view
     $view = new Template();
     echo $view->render('views/form1.html');
