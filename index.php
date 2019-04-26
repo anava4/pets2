@@ -18,6 +18,8 @@ $f3->set('colors', array('pink','green','blue'));
 //Turn on Fat-Free error reporting
 $f3->set('DEBUG',3);
 
+require_once('model/validation-functions.php');
+
 //Define a default route
 $f3->route('GET /', function()
 {
