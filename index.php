@@ -62,7 +62,7 @@ $f3->route('GET /@animal', function($f3,$params)
 });
 
 //Define a order route
-$f3->route('GET /order', function()
+$f3->route('GET|POST /order', function()
 {
     //Display an order view
     $view = new Template();
@@ -71,7 +71,7 @@ $f3->route('GET /order', function()
 );
 
 //Define a order2 route
-$f3->route('POST /order2', function()
+$f3->route('GET|POST /order2', function()
 {
     //print_r($_POST);
     $_SESSION['animal'] = $_POST['animal'];
