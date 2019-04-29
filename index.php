@@ -64,8 +64,8 @@ $f3->route('GET /@animal', function($f3,$params)
 });
 
 //Define a order route
-$f3->route('GET|POST /order', function()
-{
+$f3->route('GET|POST /order',
+
     function($f3){
         $_SESSION = array();
 
@@ -78,7 +78,7 @@ $f3->route('GET|POST /order', function()
                 $f3->set("errors['animal']", "Please enter an animal.");
             }
         }
-    }
+
     //Display an order view
     $view = new Template();
     echo $view->render('views/form1.html');
