@@ -92,11 +92,11 @@ $f3->route('GET|POST /order2',
 
         if(isset($_POST['color'])){
             $color = $_POST['color'];
-            if(validString($color)){
+            if(validColor($color)){
                 $_SESSION['color'] = $color;
                 $f3->reroute('/results');
             }else{
-                $f3->set("errors['colors']", "Please enter a color.");
+                $f3->set("errors['color']", "Please enter a color.");
             }
         }
     //Display order received view
@@ -105,7 +105,7 @@ $f3->route('GET|POST /order2',
 });
 
 //Define a results route
-$f3->route('POST /results', function()
+$f3->route('GET|POST /results', function()
 {
     //print_r($_POST);
     $_SESSION['color'] = $_POST['color'];

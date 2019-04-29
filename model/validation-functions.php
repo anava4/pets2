@@ -9,7 +9,7 @@
 function validColor($color)
 {
     global $f3;
-    return in_array($color, $f3->get('colors'));
+    return in_array($color, $f3->get('color'));
 }
 
 function validString($string)
