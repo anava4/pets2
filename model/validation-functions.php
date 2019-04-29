@@ -14,5 +14,5 @@ function validColor($color)
 
 function validString($string)
 {
-    return is_string($string);
+    return ctype_alpha($string);
 }
