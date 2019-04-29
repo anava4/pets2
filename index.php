@@ -71,7 +71,7 @@ $f3->route('GET|POST /order',
 
         if(isset($_POST['animal'])){
             $animal = $_POST['animal'];
-            if(validText($animal)){
+            if(validString($animal)){
                 $_SESSION['animal'] = $animal;
                 $f3->reroute('/order2');
             }else{
@@ -86,10 +86,19 @@ $f3->route('GET|POST /order',
 );
 
 //Define a order2 route
-$f3->route('GET|POST /order2', function()
-{
-    //print_r($_POST);
-    $_SESSION['animal'] = $_POST['animal'];
+$f3->route('GET|POST /order2',
+    function($f3){
+    $_SESSION = array();
+
+        if(isset($_POST['color'])){
+            $color = $_POST['color'];
+            if(validString($color)){
+                $_SESSION['color'] = $color;
+                $f3->reroute('/order2');
+            }else{
+                $f3->set("errors['colors']", "Please enter an animal.");
+            }
+        }
     //Display order received view
     $view = new Template();
     echo $view->render('views/form2.html');
