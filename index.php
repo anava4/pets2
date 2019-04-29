@@ -96,7 +96,7 @@ $f3->route('GET|POST /order2',
                 $_SESSION['color'] = $color;
                 $f3->reroute('/order2');
             }else{
-                $f3->set("errors['colors']", "Please enter an animal.");
+                $f3->set("errors['colors']", "Please enter a color.");
             }
         }
     //Display order received view
@@ -109,6 +109,7 @@ $f3->route('POST /results', function()
 {
     //print_r($_POST);
     $_SESSION['color'] = $_POST['color'];
+    $_SESSION['animal'] = $_POST['animal'];
     //Display order received view
     $view = new Template();
     echo $view->render('views/results.html');
