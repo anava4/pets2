@@ -94,7 +94,7 @@ $f3->route('GET|POST /order2',
             $color = $_POST['color'];
             if(validString($color)){
                 $_SESSION['color'] = $color;
-                $f3->reroute('/order2');
+                $f3->reroute('/results');
             }else{
                 $f3->set("errors['colors']", "Please enter a color.");
             }
