@@ -88,7 +88,7 @@ $f3->route('GET|POST /order',
 //Define a order2 route
 $f3->route('GET|POST /order2',
     function($f3){
-    $_SESSION = array();
+
 
         if(isset($_POST['color'])){
             $color = $_POST['color'];
@@ -105,11 +105,9 @@ $f3->route('GET|POST /order2',
 });
 
 //Define a results route
-$f3->route('POST /results', function()
+$f3->route('GET|POST /results', function()
 {
-    //print_r($_POST);
-    $_SESSION['color'] = $_POST['color'];
-    $_SESSION['animal'] = $_POST['animal'];
+
     //Display order received view
     $view = new Template();
     echo $view->render('views/results.html');
