@@ -10,6 +10,9 @@
         <input type="text" name="animal">
     </label>
     <input type="submit" value="Next">
+    <check if="{{ @errors['animal'] }}">
+        <span class="err">{{ @errors['animal'] }}</span>
+    </check><br><br>
 </form>
 
 </body>
